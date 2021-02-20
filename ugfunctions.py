@@ -343,7 +343,7 @@ def mytclean(myfile,myniter,mythresh,srno,cell,imsize, mynterms1,mywproj):    # 
 	default(tclean)
 	if mynterms1 > 1:
 		tclean(vis=myfile,
-       			imagename=myoutimg, selectdata= True, field='0', spw='0', imsize=imsize, cell=cell, robust=0, weighting='briggs', 
+       			imagename=myoutimg, selectdata= True, field='0', spw=vlaspw, imsize=imsize, cell=cell, robust=0, weighting='briggs', 
        			specmode='mfs',	nterms=mynterms1, niter=myniter, usemask='auto-multithresh',minbeamfrac=0.1, sidelobethreshold = 1.5,
 #			minpsffraction=0.05,
 #			maxpsffraction=0.8,
@@ -353,7 +353,7 @@ def mytclean(myfile,myniter,mythresh,srno,cell,imsize, mynterms1,mywproj):    # 
        			interactive=False)
 	else:
 		tclean(vis=myfile,
-       			imagename=myoutimg, selectdata= True, field='0', spw='0', imsize=imsize, cell=cell, robust=0, weighting='briggs', 
+       			imagename=myoutimg, selectdata= True, field='0', spw=vlaspw, imsize=imsize, cell=cell, robust=0, weighting='briggs', 
        			specmode='mfs',	nterms=mynterms1, niter=myniter, usemask='auto-multithresh',minbeamfrac=0.1,sidelobethreshold = 1.5,
 #			minpsffraction=0.05,
 #			maxpsffraction=0.8,
@@ -367,7 +367,7 @@ def myonlyclean(myfile,myniter,mythresh,srno,cell,imsize,mynterms1,mywproj):
 	default(clean)
 	clean(vis=myfile,
 	selectdata=True,
-	spw='0',
+	spw='',
 	imagename='selfcal'+'img'+str(srno),
 	imsize=imsize,
 	cell=cell,
@@ -388,7 +388,7 @@ def myonlyclean(myfile,myniter,mythresh,srno,cell,imsize,mynterms1,mywproj):
 def mysplit(myfile,srno):
 	filname_pre = getfields(myfile)[0]
 	default(mstransform)
-	mstransform(vis=myfile, field='0', spw='0', datacolumn='corrected', outputvis=filname_pre+'-selfcal'+str(srno)+'.ms')
+	mstransform(vis=myfile, field='0', spw='', datacolumn='corrected', outputvis=filname_pre+'-selfcal'+str(srno)+'.ms')
 	myoutvis=filname_pre+'-selfcal'+str(srno)+'.ms'
 	return myoutvis
 
