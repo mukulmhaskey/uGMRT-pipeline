@@ -83,7 +83,7 @@ nwprojpl = config.getint('basic','nwprojpl')
 uvracal=config.get('default','uvracal')
 uvrascal=config.get('default','uvrascal')
 target = config.getboolean('default','target')
-
+vlaspw = config.get('basic','vlaspw')
 
 execfile('ugfunctions.py')
 
